@@ -14,14 +14,14 @@ stream.on('error', async () => {
 
 stdout.write('Hi!\nPlease, type some text\nYour text will be written to a file newfile.txt\n');
 stdin.on('data', (data) => {
-  if (data.toString().slice(0, 4) === 'exit') {
+  if (data.toString().slice(0, 4) === 'exit' && data.toString().length === 6) {
     console.log(partingWords);
     exit();
   }
      
   fs.appendFile(path.join(__dirname, 'newfile.txt' ), data, (err) => {
     if (err) throw err;
-    console.log('You can continue typing. For finish type \'exit\' or Ctrl + C');
+    console.log('You can continue typing. For finish type \'exit\' without spaces or Ctrl + C');
   });
 });
 
