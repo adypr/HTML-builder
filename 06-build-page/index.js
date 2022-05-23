@@ -18,11 +18,12 @@ const renderHtml = async () => {
   let components = await fsp.readdir(path.join(__dirname, 'components'));
   content = content.toString();
   let resStr = components.map(async (component) => {
-    const componentContent = await fsp.readFile(path.join(__dirname, 'components', component));
+    const componentContent = await fsp.readFile(path.join(__dirname, 'components', component), 'utf8');
     content = content.replace(`{{${path.parse(component).name}}}`, componentContent.toString());
     return content;
-  })[components.length - 1];
-  return resStr;
+  });
+  await Promise.all(resStr);
+  return  content.toString();
 };
 
 
