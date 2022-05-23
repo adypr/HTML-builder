@@ -15,7 +15,6 @@ const renderStyles = async (folder) => {
     }
     await fromFile.close();
   });
-    
 };
 
 renderStyles(path.join(__dirname, 'styles'));
