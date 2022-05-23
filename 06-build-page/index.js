@@ -34,7 +34,7 @@ const bunlePath = path.join(__dirname, 'project-dist', 'style.css');
 const renderStyles = async (folder) => {
   await fsp.writeFile(bunlePath, '');
   const arr = await fsp.readdir(folder);
-  arr.map(async (file) => {
+  arr.reverse().map(async (file) => {
     const filePath = path.join(folder, file);
     if (path.parse(filePath).ext !== '.css') return;
     const fromFile = await fsp.open(filePath);
