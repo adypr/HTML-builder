@@ -2,7 +2,7 @@ const {stdin, stdout, exit} = process;
 const fs = require('fs');
 const path = require('path');
 
-const partingWords = 'Have a good day!';
+const partingWords = 'Text typing finished. Have a good day!';
 
 
 const stream = fs.createReadStream(path.join(__dirname, 'newfile.txt' ), 'utf-8');

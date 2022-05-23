@@ -12,7 +12,6 @@ const copyFiles = async (srcFolder, distFolder) => {
   arr.map(async (file) => {
     const fileInfo = await fsp.stat(path.join(srcFolder, file));
     if (fileInfo.isDirectory()) {
-      console.log(distFolder);
       await fsp.mkdir(path.join(distFolder, file));
       return copyFiles(path.join(srcFolder, file), path.join(distFolder, file));
     }
